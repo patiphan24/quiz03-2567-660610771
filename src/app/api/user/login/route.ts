@@ -26,7 +26,7 @@ export const POST = async (request: NextRequest) => {
       }
     const secret = process.env.JWT_SECRET || "This is another secret";
     const token = jwt.sign(
-    { username: user.username, role: user.role },
+    { username, role: user.role },
     secret,
     { expiresIn: "8h" }
   )
