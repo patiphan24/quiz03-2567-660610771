@@ -2,9 +2,7 @@ import jwt from "jsonwebtoken";
 
 import { DB, readDB } from "@lib/DB";
 import { NextRequest, NextResponse } from "next/server";
-import { DataFile } from "lowdb/node";
 import { Database } from "@lib/DB";
-import { sign } from "crypto";
 
 export const POST = async (request: NextRequest) => {
   readDB();
