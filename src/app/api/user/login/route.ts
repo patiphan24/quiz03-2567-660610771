@@ -2,7 +2,9 @@ import jwt from "jsonwebtoken";
 
 import { DB, readDB } from "@lib/DB";
 import { NextRequest, NextResponse } from "next/server";
+
 import { Database } from "@lib/DB";
+
 
 export const POST = async (request: NextRequest) => {
   readDB();
@@ -24,7 +26,7 @@ export const POST = async (request: NextRequest) => {
       }
     const secret = process.env.JWT_SECRET || "This is another secret";
     const token = jwt.sign(
-    { username, role: user.role },
+    { username: user.username, role: user.role },
     secret,
     { expiresIn: "8h" }
   )
